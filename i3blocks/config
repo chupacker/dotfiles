@@ -1,0 +1,34 @@
+# Global defaults
+command=/usr/bin/env sh -c "%s"
+separator=true
+markup=pango
+
+# [spotify]
+# command=~/.config/i3blocks/scripts/spotify.sh
+# interval=1
+
+[cpu]
+command=~/.config/i3blocks/scripts/cpu.sh
+interval=2
+
+[filesystem]
+command=~/.config/i3blocks/scripts/filesystem.sh
+interval=30
+
+[memory]
+command=~/.config/i3blocks/scripts/memory.sh
+interval=2
+
+[temp]
+command=~/.config/i3blocks/scripts/cputemp.sh
+interval=20
+
+[volume]
+command=~/.config/i3blocks/scripts/volume.sh
+interval=once
+signal=10
+
+[date]
+command=~/.config/i3blocks/scripts/date.sh
+interval=1
+

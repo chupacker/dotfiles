@@ -1,0 +1,33 @@
+# Colors (Fixed Gruvbox-like with proper bright variants)
+
+[colors.primary]
+background = '#1c1c1c'   # $bg
+foreground = '#a89984'   # $gray
+
+[colors.cursor]
+cursor = '#bdae93'       # $lightgray
+text = '#1c1c1c'         # $bg
+
+[colors.selection]
+background = '#3c3836'   # slightly lighter than bg
+text = '#ebdbb2'         # readable light text
+
+[colors.normal]
+black = '#1d2021'        # $darkgray
+red = '#cc241d'
+green = '#98971a'
+yellow = '#d79921'
+blue = '#458588'
+magenta = '#b16286'
+cyan = '#689d68'
+white = '#a89984'
+
+[colors.bright]
+black = '#3c3836'        # lighter dark
+red = '#fb4934'          # brighter red
+green = '#b8bb26'        # brighter green
+yellow = '#fabd2f'       # brighter yellow
+blue = '#83a598'         # brighter blue
+magenta = '#d3869b'      # brighter purple
+cyan = '#8ec07c'         # brighter aqua
+white = '#ebdbb2'        # light foreground

@@ -1,0 +1,123 @@
+/**
+ * ROFI Color theme (fully dark, matched to i3bar)
+ */
+
+* {
+    background-color:            #030303;
+    border-color:                #2e2e2e;
+    text-color:                  #cccccc;
+    font:                        "Iosevka Nerd Font 12";
+    prompt-font:                 "Iosevka Nerd Font 12";
+
+    prompt-background:           #1bfd9c;
+    prompt-foreground:           #030303;
+    prompt-padding:              4px;
+
+    alternate-normal-background: #151515;
+    alternate-normal-foreground: #cccccc;
+
+    selected-normal-background:  #66b2b2;
+    selected-normal-foreground:  #030303;
+
+    spacing:                     3;
+}
+
+configuration {
+    drun-icon-theme: "Tela circle blue dark";
+}
+
+#window {
+    background-color: #030303;
+    border: 2;
+    padding: 5;
+}
+
+#mainbox {
+    background-color: #030303;
+    border: 0;
+    padding: 0;
+}
+
+#message {
+    background-color: #030303;
+    border: 1px dash 0px 0px ;
+    padding: 1px ;
+}
+
+#listview {
+    background-color: #030303;
+    fixed-height: 0;
+    border: 2px solid 0px 0px ;
+    border-color: #7a7a7a;
+    spacing: 2px ;
+    scrollbar: true;
+    padding: 2px 0px 0px ;
+}
+
+#element {
+    background-color: inherit;
+    border: 0;
+    padding: 3px ;
+}
+
+#element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+#element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+
+#scrollbar {
+    width: 0px ;
+    border: 0;
+    handle-width: 0px ;
+    padding: 0;
+}
+
+#sidebar {
+    background-color: #030303;
+    border: 2px dash 0px 0px ;
+}
+
+#button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+#inputbar {
+    background-color: #030303;
+    spacing: 0;
+    padding: 1px ;
+}
+
+#case-indicator {
+    spacing: 0;
+}
+
+#entry {
+    background-color: #030303;
+    padding: 4px 4px;
+    expand: false;
+    width: 10em;
+}
+
+#prompt {
+    padding:          @prompt-padding;
+    background-color: @prompt-background;
+    text-color:       @prompt-foreground;
+    font:             @prompt-font;
+    border-radius:    2px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element-icon {
+    background-color: inherit;
+}
+
