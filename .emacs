@@ -13,6 +13,8 @@
 (with-eval-after-load 'evil
   (evil-define-key 'normal 'global (kbd "SPC l f") 'eglot-format))
 
+(setq evil-undo-system 'undo-redo)
+(setq-default truncate-lines t)
 (setq mouse-wheel-progressive-speed nil)
 (setq compile-command "")
 (setq make-backup-files nil)
@@ -29,13 +31,23 @@
 (rc/require 'company)
 (global-company-mode)
 (rc/require 'evil)
+(rc/require 'glsl-mode)
 (require 'evil)
 (evil-mode 1)
 (require 'eglot)
 (add-hook 'c-mode-hook   #'eglot-ensure)
 (add-hook 'c++-mode-hook #'eglot-ensure)
 (add-hook 'rust-mode-hook #'eglot-ensure)
+(add-hook 'glsl-mode-hook #'eglot-ensure)
 (rc/require 'rust-mode)
+(rc/require 'tree-sitter)
+(rc/require 'tree-sitter-langs)
+(require 'tree-sitter)
+(require 'tree-sitter-langs)
+
+(global-tree-sitter-mode)
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+
 (with-eval-after-load 'eglot
   (setq eglot-autoshutdown t)
   (setq eldoc-echo-area-use-multiline-p nil)
@@ -46,7 +58,10 @@
                '((c-mode c++-mode) . ("clangd"
                                       "--header-insertion=never"
                                       "--completion-style=detailed"
-                                      "--clang-tidy"))))
+                                      "--clang-tidy")))
+  (add-to-list 'eglot-server-programs
+               '(glsl-mode . ("glsl_analyzer"))))
+
 (with-eval-after-load 'evil
   (evil-define-key 'normal 'global (kbd "C-n") 'dired-jump))
 (with-eval-after-load 'dired
