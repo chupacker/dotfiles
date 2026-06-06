@@ -13,6 +13,7 @@
 (with-eval-after-load 'evil
   (evil-define-key 'normal 'global (kbd "SPC l f") 'eglot-format))
 
+(global-auto-revert-mode 1)
 (setq evil-undo-system 'undo-redo)
 (setq-default truncate-lines t)
 (setq mouse-wheel-progressive-speed nil)
@@ -27,7 +28,7 @@
 (column-number-mode 1)
 (global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
-(rc/require-theme 'gruber-darker)
+;; (rc/require-theme 'gruber-darker)
 (rc/require 'company)
 (global-company-mode)
 (rc/require 'evil)
@@ -44,6 +45,19 @@
 (rc/require 'tree-sitter-langs)
 (require 'tree-sitter)
 (require 'tree-sitter-langs)
+
+(use-package doom-themes
+  :ensure t
+  :custom
+  ;; Global settings (defaults)
+  (doom-themes-enable-bold t)   ; if nil, bold is universally disabled
+  (doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  :config
+  (load-theme 'doom-opera-light t)
+
+  )
+
+(evil-commentary-mode)
 
 (global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
@@ -71,7 +85,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
+ '(package-selected-packages
+   '(company dash-functional doom-themes evil evil-commentary glsl-mode
+	     gruber-darker-theme rust-mode tree-sitter-langs zig-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
