@@ -1,3 +1,12 @@
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = '●', -- Or use '■', '◆', '➜', etc.
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+})
+
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
