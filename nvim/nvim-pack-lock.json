@@ -1,5 +1,13 @@
 {
   "plugins": {
+    "baleia.nvim": {
+      "rev": "710537ff5cd669c5a76c5f5b6a9169fd9b913d18",
+      "src": "https://github.com/m00qek/baleia.nvim"
+    },
+    "compile-mode.nvim": {
+      "rev": "dd3e952076a33faba0a55b04b2b73945832c0527",
+      "src": "https://github.com/ej-shafran/compile-mode.nvim"
+    },
     "crates.nvim": {
       "rev": "694357861ec9ebf12475ddcdd04ea45a0923c32d",
       "src": "https://github.com/saecki/crates.nvim"
@@ -20,6 +28,10 @@
       "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
       "src": "https://github.com/rose-pine/neovim"
     },
+    "nvim": {
+      "rev": "0303a7208dba448c459767486a38a6ec05c4216b",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "nvim-lspconfig": {
       "rev": "9573948c38bfabeec353ae7dd7d3ffec4c506a6b",
       "src": "https://github.com/neovim/nvim-lspconfig"
@@ -31,6 +43,10 @@
     "oil.nvim": {
       "rev": "b91ee5a77a6a9605d9c1aaf4fda74b66082c8297",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
     }
   }
 }
