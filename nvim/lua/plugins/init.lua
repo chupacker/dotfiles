@@ -1,6 +1,9 @@
 vim.pack.add({
-	'https://github.com/nvim-mini/mini.pairs',
 	'https://github.com/stevearc/oil.nvim',
+	'https://github.com/vague-theme/vague.nvim',
+	'https://github.com/windwp/nvim-autopairs',
+	'https://github.com/saghen/blink.lib',
+	'https://github.com/saghen/blink.cmp',
 	'https://github.com/nvim-mini/mini.pick',
 	'https://github.com/j-hui/fidget.nvim',
 	'https://github.com/rose-pine/neovim',
@@ -17,25 +20,34 @@ vim.pack.add({
 
 
 
-
+require("nvim-autopairs").setup()
 require("baleia").setup()
-require('mini.pairs').setup()
 require('mini.pick').setup()
 require('oil').setup()
 require('fidget').setup()
 require('crates').setup()
-require('nvim-treesitter').setup({
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-	},
+require('nvim-treesitter.config').setup({
+    ensure_installed = { "go", "lua", "vim", "vimdoc", "query" }, 
+    sync_install = false,
+    auto_install = true, 
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
+})
+
+require("blink.cmp").setup({
+	    completion = { 
+				menu = { border = 'rounded' },
+				documentation = { auto_show = false } 
+			},
 })
 require("rose-pine").setup({
 	styles = {
 		transparency = true
 	},
 })
-require("catppuccin").setup({
-	flavour = "latte",                -- latte, frappe, macchiato, mocha
-	transparent_background = false,   -- disables setting the background color.
+require('vague').setup({
+  transparent = true, -- If true, background is not set
+  on_highlights = function(hl, colors) end,
 })

@@ -1,3 +1,5 @@
+vim.env.PATH = "/home/linuxbrew/.linuxbrew/bin:" .. vim.env.PATH
+
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.clipboard = 'unnamedplus'
@@ -33,4 +35,4 @@ vim.g.compile_mode = {
     use_pseudo_terminal = true,
 }
 
-vim.cmd.colorscheme("catppuccin-nvim")
+vim.cmd.colorscheme("vague")
