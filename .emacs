@@ -28,7 +28,7 @@
 (column-number-mode 1)
 (global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
-;; (rc/require-theme 'gruber-darker)
+(rc/require-theme 'gruber-darker)
 (rc/require 'company)
 (global-company-mode)
 (rc/require 'evil)
@@ -46,16 +46,18 @@
 (require 'tree-sitter)
 (require 'tree-sitter-langs)
 
-(use-package doom-themes
-  :ensure t
-  :custom
-  ;; Global settings (defaults)
-  (doom-themes-enable-bold t)   ; if nil, bold is universally disabled
-  (doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  :config
-  (load-theme 'doom-opera-light t)
+(rc/require 'go-mode)
 
-  )
+;; (use-package doom-themes
+;;   :ensure t
+;;   :custom
+;;   ;; Global settings (defaults)
+;;   (doom-themes-enable-bold t)   ; if nil, bold is universally disabled
+;;   (doom-themes-enable-italic t) ; if nil, italics is universally disabled
+;;   :config
+;;   (load-theme 'doom-opera-light t)
+
+;;   )
 
 (evil-commentary-mode)
 
@@ -74,7 +76,10 @@
                                       "--completion-style=detailed"
                                       "--clang-tidy")))
   (add-to-list 'eglot-server-programs
-               '(glsl-mode . ("glsl_analyzer"))))
+               '(glsl-mode . ("glsl_analyzer")))
+
+  (add-to-list 'eglot-server-programs
+               '(go-mode . ("gopls"))))
 
 (with-eval-after-load 'evil
   (evil-define-key 'normal 'global (kbd "C-n") 'dired-jump))
@@ -86,8 +91,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(company dash-functional doom-themes evil evil-commentary glsl-mode
-	     gruber-darker-theme rust-mode tree-sitter-langs zig-mode)))
+   '(company dash-functional doom-themes evil-commentary glsl-mode
+	     go-mode gruber-darker-theme rust-mode tree-sitter-langs)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
