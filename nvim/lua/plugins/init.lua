@@ -2,8 +2,6 @@ vim.pack.add({
 	'https://github.com/stevearc/oil.nvim',
 	'https://github.com/vague-theme/vague.nvim',
 	'https://github.com/windwp/nvim-autopairs',
-	'https://github.com/saghen/blink.lib',
-	'https://github.com/saghen/blink.cmp',
 	'https://github.com/nvim-mini/mini.pick',
 	'https://github.com/j-hui/fidget.nvim',
 	'https://github.com/rose-pine/neovim',
@@ -14,11 +12,11 @@ vim.pack.add({
 	'https://github.com/ej-shafran/compile-mode.nvim',
 	'https://github.com/nvim-lua/plenary.nvim',
 	'https://github.com/m00qek/baleia.nvim',
+	'https://github.com/hrsh7th/nvim-cmp',
+	'https://github.com/hrsh7th/cmp-nvim-lsp',
+	'https://github.com/hrsh7th/cmp-buffer',
+	'https://github.com/hrsh7th/cmp-path',
 })
-
-
-
-
 
 require("nvim-autopairs").setup()
 require("baleia").setup()
@@ -36,18 +34,40 @@ require('nvim-treesitter.config').setup({
     },
 })
 
-require("blink.cmp").setup({
-	    completion = { 
-				menu = { border = 'rounded' },
-				documentation = { auto_show = false } 
-			},
+local cmp = require('cmp')
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+cmp.setup({
+	mapping = cmp.mapping.preset.insert({
+			['<C-b>'] = cmp.mapping.scroll_docs(-4),
+			['<C-f>'] = cmp.mapping.scroll_docs(4),
+			['<C-Space>'] = cmp.mapping.complete(),
+			['<C-e>'] = cmp.mapping.abort(),
+			['<C-y>'] = cmp.mapping.confirm({ select = true }),
+			['<C-n>'] = cmp.mapping.select_next_item(),
+			['<C-p>'] = cmp.mapping.select_prev_item(),
+	}),
+	sources = cmp.config.sources({
+		{ name = 'nvim_lsp' },
+		{ name = 'crates' },
+	}, {
+		{ name = 'buffer' },
+		{ name = 'path' },
+	}),
+	window = {
+			completion = cmp.config.window.bordered({ border = 'rounded' }),
+			documentation = cmp.config.window.bordered({ border = 'rounded' }),
+	},
 })
+
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+
 require("rose-pine").setup({
 	styles = {
 		transparency = true
 	},
 })
 require('vague').setup({
-  transparent = true, -- If true, background is not set
+  transparent = true,
   on_highlights = function(hl, colors) end,
 })
