@@ -9,7 +9,6 @@ vim.pack.add({
 	'https://github.com/neovim/nvim-lspconfig',
 	'https://github.com/nvim-treesitter/nvim-treesitter',
 	'https://github.com/catppuccin/nvim',
-	'https://github.com/ej-shafran/compile-mode.nvim',
 	'https://github.com/nvim-lua/plenary.nvim',
 	'https://github.com/m00qek/baleia.nvim',
 	'https://github.com/hrsh7th/nvim-cmp',
