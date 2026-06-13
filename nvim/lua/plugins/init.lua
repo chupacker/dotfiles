@@ -1,5 +1,6 @@
 vim.pack.add({
 	'https://github.com/stevearc/oil.nvim',
+	'https://github.com/folke/trouble.nvim',
 	'https://github.com/vague-theme/vague.nvim',
 	'https://github.com/windwp/nvim-autopairs',
 	'https://github.com/nvim-mini/mini.pick',
@@ -20,6 +21,7 @@ vim.pack.add({
 require("nvim-autopairs").setup()
 require("baleia").setup()
 require('mini.pick').setup()
+require("trouble").setup()
 require('oil').setup()
 require('fidget').setup()
 require('crates').setup()
