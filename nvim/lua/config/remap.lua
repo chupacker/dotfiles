@@ -1,5 +1,10 @@
 vim.g.mapleader = ' '
 
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set('n', '<C-w>v', '<C-w>v<C-w>l', { desc = 'Split vertical and focus' })
+vim.keymap.set('n', '<C-w>s', '<C-w>s<C-w>j', { desc = 'Split horizontal and focus' })
 vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, { noremap = true, silent = true })
 vim.keymap.set("n", "<C-n>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set('n', '<leader>ff', '<cmd>Pick files<cr>')

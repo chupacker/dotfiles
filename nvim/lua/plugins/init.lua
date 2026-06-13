@@ -24,13 +24,13 @@ require('oil').setup()
 require('fidget').setup()
 require('crates').setup()
 require('nvim-treesitter.config').setup({
-    ensure_installed = { "go", "lua", "vim", "vimdoc", "query" }, 
-    sync_install = false,
-    auto_install = true, 
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
+	ensure_installed = { "go", "lua", "vim", "vimdoc", "query" },
+	sync_install = false,
+	auto_install = true,
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
 })
 
 local cmp = require('cmp')
@@ -38,13 +38,13 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
-			['<C-b>'] = cmp.mapping.scroll_docs(-4),
-			['<C-f>'] = cmp.mapping.scroll_docs(4),
-			['<C-Space>'] = cmp.mapping.complete(),
-			['<C-e>'] = cmp.mapping.abort(),
-			['<C-y>'] = cmp.mapping.confirm({ select = true }),
-			['<C-n>'] = cmp.mapping.select_next_item(),
-			['<C-p>'] = cmp.mapping.select_prev_item(),
+		['<C-b>'] = cmp.mapping.scroll_docs(-4),
+		['<C-f>'] = cmp.mapping.scroll_docs(4),
+		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-e>'] = cmp.mapping.abort(),
+		['<C-y>'] = cmp.mapping.confirm({ select = true }),
+		['<C-n>'] = cmp.mapping.select_next_item(),
+		['<C-p>'] = cmp.mapping.select_prev_item(),
 	}),
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
@@ -54,8 +54,8 @@ cmp.setup({
 		{ name = 'path' },
 	}),
 	window = {
-			completion = cmp.config.window.bordered({ border = 'rounded' }),
-			documentation = cmp.config.window.bordered({ border = 'rounded' }),
+		completion = cmp.config.window.bordered({ border = 'rounded' }),
+		documentation = cmp.config.window.bordered({ border = 'rounded' }),
 	},
 })
 
@@ -67,6 +67,6 @@ require("rose-pine").setup({
 	},
 })
 require('vague').setup({
-  transparent = true,
-  on_highlights = function(hl, colors) end,
+	transparent = true,
+	-- on_highlights = function(hl, colors) end,
 })
