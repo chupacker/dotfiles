@@ -1,7 +1,7 @@
 # Sway config with i3 keybinds/styling
 #
 # Read `man 5 sway` for a complete reference.
-
+exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway WAYLAND_DISPLAY SWAYSOCK
 ### Variables
 #
 set $mod Mod4
@@ -17,13 +17,16 @@ set $menu rofi -show drun
 
 ### Output configuration
 #
-# output * bg /home/dan/Pictures/bigrat.jpg fill
+output * bg /home/dan/Pictures/27-Golden-Gate-Dark.png fill
 
 #output * bg /usr/share/backgrounds/default.jxl fill
 #output DP-1 mode 1920x1080@165Hz
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
+exec flameshot
+exec nm-applet
+exec blueman-applet
 
 input type:pointer {
     accel_profile flat
@@ -57,7 +60,7 @@ font pango:JetBrains Mono Nerd Font 10
     bindsym $mod+d exec $menu
 
     # Lock screen
-    bindsym $mod+Mod1+l exec swaylock
+    bindsym $mod+Mod1+l exec swaylock -i ~/Pictures/27-Golden-Gate-Dark.png
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
