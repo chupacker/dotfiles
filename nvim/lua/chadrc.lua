@@ -1,13 +1,13 @@
 local options = {
 
 	base46 = {
-		theme = "flexoki", -- default theme
+		theme = "rosepine", -- default theme
 		hl_add = {},
 		hl_override = {},
 		integrations = {},
 		changed_themes = {},
-		transparency = false,
-		theme_toggle = { "flexoki", "one_light" },
+		transparency = true,
+		theme_toggle = { "rosepine", "one_light" },
 	},
 
 	ui = {
@@ -23,7 +23,7 @@ local options = {
 
 		statusline = {
 			enabled = true,
-			theme = "vscode", -- default/vscode/vscode_colored/minimal
+			theme = "default", -- default/vscode/vscode_colored/minimal
 			-- default/round/block/arrow separators work only for default statusline theme
 			-- round and block will work for minimal theme only
 			separator_style = "default",
@@ -98,7 +98,7 @@ local options = {
 		},
 	},
 
-	lsp = { signature = true },
+	lsp = { signature = false },
 
 	cheatsheet = {
 		theme = "grid", -- simple/grid

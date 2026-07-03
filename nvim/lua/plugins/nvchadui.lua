@@ -25,5 +25,10 @@ return {
 		"nvzone/minty",
 		cmd = { "Shades", "Huefy" },
 	},
+	{
+		"NvChad/nvterm",
+		config = function()
+			require("nvterm").setup()
+		end,
+	},
 }
-

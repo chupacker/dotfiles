@@ -1,5 +1,3 @@
-vim.env.PATH = "/home/linuxbrew/.linuxbrew/bin:" .. vim.env.PATH
-
 vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     -- This attempts to start treesitter for the current buffer
