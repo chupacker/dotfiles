@@ -11,10 +11,11 @@ font pango:JetBrains Mono Nerd Font 10
 exec --no-startup-id dex --autostart --environment i3
 
 exec_always --no-startup-id picom
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id xwallpaper --zoom ~/Pictures/Wallpaper.png
-exec_always --no-startup-id flameshot
-exec_always --no-startup-id ibus start 
 exec_always --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 165 
+
+exec_always --no-startup-id setxkbmap -layout us,ge -option grp:alt_shift_toggle
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -23,16 +24,14 @@ exec_always --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 165
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+for_window [class="pavucontrol"] floating enable
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -44,7 +43,7 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym $mod+Return exec alacritty 
 
-bindsym Print exec flameshot gui
+bindsym Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -139,25 +138,9 @@ set $aqua #689d68
 set $gray #a89984
 set $darkgray #1d2021
 set $lightgray #bdae93
-bar {
-    status_command i3blocks
-    colors {
-        # bar background color
-        background $bg
-        # text color used for blocks that do not have a color specified.
-        statusline $lightgray
-        # workspaces section            
-        #                    border  backgr. text
-        focused_workspace    $lightgray $lightgray $bg
-        inactive_workspace   $darkgray $darkgray $lightgray
-        active_workspace     $darkgray $darkgray $lightgray
-        urgent_workspace     $red $red $bg
-    }
-}
 
 # class                 border|backgr|text|indicator|child_border
 client.focused          $lightgray $lightgray $bg $purple $darkgray
 client.focused_inactive $darkgray $darkgray $lightgray $purple $darkgray
 client.unfocused        $darkgray $darkgray $lightgray $purple $darkgray
 client.urgent           $red $red $white $red $red
-
