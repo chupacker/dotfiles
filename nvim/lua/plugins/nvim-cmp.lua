@@ -16,11 +16,19 @@ return {
 		require("crates").setup()
 		require("nvim-autopairs").setup()
 
+		-- local source_mapping = {
+		-- 	nvim_lsp = "[LSP]",
+		-- 	crates   = "[Crates]",
+		-- 	path     = "[Path]",
+		-- 	buffer   = "[Buffer]",
+		-- }
+		--
+
 		local source_mapping = {
-			nvim_lsp = "[LSP]",
-			crates   = "[Crates]",
-			path     = "[Path]",
-			buffer   = "[Buffer]",
+			nvim_lsp = "",
+			crates   = "",
+			path     = "",
+			buffer   = "",
 		}
 
 		cmp.setup({
