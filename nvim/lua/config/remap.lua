@@ -8,12 +8,4 @@ vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { noremap = true, sile
 vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>")
 vim.keymap.set("n", "<C-n>", "<cmd>Oil<cr>")
 vim.keymap.set("n", "q", "<Nop>", { noremap = true })
-
-vim.keymap.set({ "n", "t" }, "<A-x>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
-end, { desc = "terminal toggleable horizontal term" })
-
 vim.keymap.set("t", "<Escape>", "<C-\\><C-n>")
-vim.keymap.set("n", "<leader>th", function()
-	require("nvchad.themes").open()
-end, { desc = "NvChad theme switcher" })

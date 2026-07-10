@@ -1,14 +1,7 @@
-vim.api.nvim_create_autocmd('FileType', {
-  callback = function()
-    -- This attempts to start treesitter for the current buffer
-    pcall(vim.treesitter.start)
-  end,
-})
-
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.clipboard = "unnamedplus"
-vim.o.winborder = "single"
+vim.o.winborder = "none"
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.g.loaded_netrw = 1
@@ -19,3 +12,5 @@ vim.o.signcolumn = "yes"
 vim.o.wrap = false
 vim.o.autoread = true
 vim.o.showmode = false
+
+vim.cmd.colorscheme("vague")

@@ -7,33 +7,35 @@ return {
 		"hrsh7th/cmp-path",
 		"saecki/crates.nvim",
 		"windwp/nvim-autopairs",
+		"onsails/lspkind.nvim",
 	},
 	config = function()
 		local cmp = require("cmp")
+		local lspkind = require("lspkind")
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-
 		require("crates").setup()
 		require("nvim-autopairs").setup()
 
-		local ELLIPSIS_CHAR = "…"
-		local MAX_LABEL_WIDTH = 20
+		local source_mapping = {
+			nvim_lsp = "[LSP]",
+			crates   = "[Crates]",
+			path     = "[Path]",
+			buffer   = "[Buffer]",
+		}
 
 		cmp.setup({
-			formatting = {
-				format = function(entry, vim_item)
-					local label = vim_item.abbr
-					local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
-					if truncated_label ~= label then
-						vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
-					end
-
-					-- CRITICAL FIX: You must return vim_item here!
-					return vim_item
-				end,
+			window = {
+				completion = cmp.config.window.bordered({ border = "none" }),
+				documentation = cmp.config.window.bordered({ border = "none" }),
 			},
-		})
-
-		cmp.setup({
+			formatting = {
+				format = lspkind.cmp_format({
+					mode = "symbol_text",
+					maxwidth = 30,
+					ellipsis_char = "…",
+					menu = source_mapping,
+				}),
+			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -44,15 +46,13 @@ return {
 				["<C-p>"] = cmp.mapping.select_prev_item(),
 			}),
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp", max_item_count = 15 },
-				{ name = "crates", max_item_count = 15 },
+				{ name = "nvim_lsp", max_item_count = 10 },
+				{ name = "crates",   max_item_count = 10 },
 			}, {
-				-- { name = "buffer", max_item_count = 15 },
-				{ name = "path", max_item_count = 15 },
+				{ name = "path", max_item_count = 10 },
 			}),
 		})
 
-		-- Auto-insert pairs/brackets when accepting a completion item
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 	end,
 }
