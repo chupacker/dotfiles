@@ -12,5 +12,3 @@ vim.o.signcolumn = "yes"
 vim.o.wrap = false
 vim.o.autoread = true
 vim.o.showmode = false
-
-vim.cmd.colorscheme("vague")

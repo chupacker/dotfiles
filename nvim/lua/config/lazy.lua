@@ -21,6 +21,6 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  install = { colorscheme = { "vague" } },
+  -- install = { colorscheme = { "tokyonight-night" } },
   checker = { enabled = false },
 })
