@@ -1,7 +1,7 @@
 * {
     border:        none;
     border-radius: 0;
-		font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Sans;
+    font-family:   "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Sans;
     font-size:     15px;
     box-shadow:    none;
     text-shadow:   none;
@@ -40,9 +40,21 @@ window#waybar.solo {
     color:      rgba(238, 46, 36, 1);
 }
 
-#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail {
+#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail, #power-profiles-daemon {
     margin:     0px 6px 0px 10px;
     min-width:  25px;
+}
+
+#power-profiles-daemon.performance {
+    color:      rgba(238, 46, 36, 1);
+}
+
+#power-profiles-daemon.balanced {
+    color:      rgba(217, 216, 216, 1);
+}
+
+#power-profiles-daemon.power-saver {
+    color:      rgba(166, 227, 161, 1);
 }
 
 #clock {
@@ -51,7 +63,7 @@ window#waybar.solo {
 }
 
 #battery.warning {
-   color:       rgba(255, 210, 4, 1);
+    color:       rgba(255, 210, 4, 1);
 }
 
 #battery.critical {

@@ -1,0 +1,11 @@
+font-size = 14
+
+# Horizontal padding (left and right)
+window-padding-x = 10
+
+# Vertical padding (top and bottom)
+window-padding-y = 10
+
+# Ensures padding stays even on all sides when resizing
+window-padding-balance = true
+background-opacity = 0.8
